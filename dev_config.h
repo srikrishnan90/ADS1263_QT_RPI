@@ -18,13 +18,13 @@
 #define UDOUBLE uint32_t
 
 
-//extern int DEV_RST_PIN;
-//extern int DEV_CS_PIN;
-//extern int DEV_DRDY_PIN;
+extern int DEV_RST_PIN;
+extern int DEV_CS_PIN;
+extern int DEV_DRDY_PIN;
 
-#define DEV_RST_PIN 18
+/*#define DEV_RST_PIN 18
 #define DEV_CS_PIN 22
-#define DEV_DRDY_PIN 17
+#define DEV_DRDY_PIN 17*/
 
 /*------------------------------------------------------------------------------------------------------*/
 void DEV_Digital_Write(UWORD Pin, UBYTE Value);
@@ -37,5 +37,7 @@ UBYTE DEV_Module_Init(void);
 void DEV_Module_Exit(void);
 
 void DEV_Delay_ms(UDOUBLE xms);
+void DEV_GPIO_Mode(UWORD Pin, UWORD Mode);
+void DEV_GPIO_Init(void);
 
 #endif // DEV_CONFIG_H

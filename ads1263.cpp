@@ -411,9 +411,9 @@ UDOUBLE ADS1263_GetChannalValue(UBYTE Channel)
             return 0;
         }
         ADS1263_SetChannal(Channel);
-         DEV_Delay_ms(2);
-         ADS1263_WriteCmd(CMD_START1);
-         DEV_Delay_ms(2);
+//         DEV_Delay_ms(1);
+//         ADS1263_WriteCmd(CMD_START1);
+//         DEV_Delay_ms(1);
         ADS1263_WaitDRDY();
         Value = ADS1263_Read_ADC1_Data();
     } else {
@@ -446,7 +446,7 @@ UDOUBLE ADS1263_GetChannalValue_ADC2(UBYTE Channel)
         }
         ADS1263_SetChannal_ADC2(Channel);
         // DEV_Delay_ms(2);
-        ADS1263_WriteCmd(CMD_START2);
+        //ADS1263_WriteCmd(CMD_START2);
         // DEV_Delay_ms(2);
         Value = ADS1263_Read_ADC2_Data();
     } else {

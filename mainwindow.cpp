@@ -19,22 +19,24 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     UDOUBLE ADC[10];
-    UDOUBLE adc1;
+    UDOUBLE adc1,adc2;
     int k=0;
     ADS1263_SetMode(0);
+    qDebug()<<"in0";
 
     if(ADS1263_init_ADC1(ADS1263_1200SPS) == 1) {
 
-        DEV_Module_Exit();
+        //DEV_Module_Exit();
         qDebug()<<"in1";
 
-        exit(0);
+        //exit(0);
     }
+    qDebug()<<"in2";
 
     //ADS1263_GetAll(ADC);
     while(1) {
         //reading all channel
-        /*
+/*
         ADS1263_GetAll(ADC);
         for(int i=0; i<1; i++) {
             if((ADC[i]>>31) == 1)
@@ -43,12 +45,14 @@ void MainWindow::on_pushButton_clicked()
                 qDebug()<<k<<" "<<i<<" "<<(ADC[i]/2147483648.0 * REF);
             k++;
         }
-        */
 
+*/
         //reading one channel
-
         adc1=ADS1263_GetChannalValue(0);
-        qDebug()<<k<<" "<<adc1;
+        adc2=ADS1263_GetChannalValue(1);
+        //qDebug()<<k<<" "<<adc1;
+        qDebug()<<k<<" "<<adc1<<" "<<adc2;
+
         k++;
 
     }
